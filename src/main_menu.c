@@ -90,7 +90,6 @@ void MainMenu_Update(float delta_in_seconds) {
 
     if (last_element != selected_element && last_element) {
         last_element->color = BLACK;
-        PlaySound(*GameInstance.sounds[0]);
     }
 
     /* calculate button selector position */

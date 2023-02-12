@@ -16,7 +16,6 @@
 typedef struct {
     bool running;
     char title[64];
-    Sound *sounds[64];
 } Game;
 
 

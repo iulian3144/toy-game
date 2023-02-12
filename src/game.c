@@ -27,21 +27,11 @@ void Game_Init() {
 
     InitWindow(screenWidth, screenHeight, GameInstance.title);
     /* need to do this after InitWindow so that the default font gets loaded (LoadFontDefault()) */
-
-    InitAudioDevice();
-
-    /* load sounds */
-    char path[128];
-    snprintf(path, 128, "%s/select.wav", GetAssetsPath());
-    Sound sound = LoadSound(path);
-    GameInstance.sounds[0] = &sound;
 }
 
 
 
 void Game_DeInit(void) {
-    CloseAudioDevice();
-
     /* Close window and OpenGL context */
     CloseWindow();
 }
