@@ -4,27 +4,32 @@
 
 * [`CMake`]() >= 3.10
 * [`GNU Make`](https://www.gnu.org/software/make/) or [`Ninja`][ninja]
-* A `C` compiler (tested with `GCC`)
+* A `C` compiler (development is done with `GCC`)
 
-1. Clone the repo:
-    ```
-    git clone --recursive <repo_url>
-    ```
+### Clone the repo
+```
+git clone --recursive <repo_url>
+```
 
-2. Run the following commands:
-    ```sh
-    cmake -S . -B build
-    make -C build
-    ```
-    Or, if you want to use [`Ninja`][ninja]:
-    ```sh
-    cmake -S . -B build -G Ninja
-    ninja -C build
-    ```
+### Build
+```sh
+# also pass `-G Ninja` if you want to use ninja instead of make
+cmake -S . -B build
+make -C build # or `ninja -C build`
+```
 
 ## TODO
 
 * Use ECS pattern for managing game objects (-> flecs)
+* command line arguments
+    * print version (`-v, --version`)
+    * set log level (`--loglevel <debug | info | warning | error>`, default: `warning`)
+* fix audio - currently not working
+
+## Nice to have
+
+* Lua API
+* Resource packer/unpacker
 
 ## Credits
 
