@@ -15,6 +15,7 @@ static int interpolate_position(int current, int target, float delta);
 
 
 
+#define COLOR_BLACK {0, 0, 0, 255}
 static menuitem_t elements[] = {
     [BUTTON_PLAY] = {
         .title    = "Play",
@@ -22,7 +23,7 @@ static menuitem_t elements[] = {
         .posY     = 80,
         .callback = Game_Start,
         .fontSize = 20,
-        .color    = BLACK
+        .color    = COLOR_BLACK
     },
     [BUTTON_SETTINGS] = {
         .title    = "Settings",
@@ -30,7 +31,7 @@ static menuitem_t elements[] = {
         .posY     = 120,
         .callback = Game_Settings,
         .fontSize = 20,
-        .color    = BLACK
+        .color    = COLOR_BLACK
     },
     [BUTTON_QUIT] =  {
         .title    = "Quit",
@@ -38,19 +39,20 @@ static menuitem_t elements[] = {
         .posY     = 160,
         .callback = Game_Quit,
         .fontSize = 20,
-        .color    = BLACK
+        .color    = COLOR_BLACK
     }
 };
 static menuitem_t *selected_element = &elements[0];
 
 
+#define COLOR_BLUE {0, 121, 241, 255}
 menuitem_t selector = {
     .title = ">",
     .posX  = 0,
     .posY  = 0,
     .callback = NULL,
     .fontSize = 20,
-    .color = BLUE
+    .color = COLOR_BLUE
 };
 
 
@@ -134,11 +136,11 @@ static int interpolate_position(int current, int target, float delta) {
     if (abs(target-current) < (int)(delta * speed_pps)) return target;
 
     if (current < target) {
-        ret = current + delta * speed_pps;
+        ret = current + (int)(delta * speed_pps);
     }
 
     if (current > target) {
-        ret = current - delta * speed_pps;
+        ret = current -  (int)(delta * speed_pps);
     }
 
     return ret;

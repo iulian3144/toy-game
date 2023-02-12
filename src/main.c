@@ -68,14 +68,16 @@ static void HUD_Update(float delta_in_seconds) {
     if (!statsHUD.enabled) return;
 
     statsHUD.fps = GetFPS();
-    statsHUD.frameTimeMs = delta_in_seconds * 1e3;
+    statsHUD.frameTimeMs = delta_in_seconds * 1e3f;
 }
 
 
 
+#define COLOR_WHITE {255, 255, 255, 255}
+#define BG_COLOR    {  0,   0,   0, 100}
 static void HUD_Render() {
-    static const Color bg_color = {0, 0, 0, 100};
-    static const Color font_color = WHITE;
+    static const Color bg_color = BG_COLOR;
+    static const Color font_color = COLOR_WHITE;
     static const int font_size = 10, x = 5, y = 5;
 
     if (statsHUD.enabled) {

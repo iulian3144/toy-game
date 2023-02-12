@@ -18,7 +18,7 @@ void Game_Init() {
     const int screenHeight = 450;
 
     GameInstance.running = true;
-    strcpy(GameInstance.title, GAME_TITLE);
+    TextCopy(GameInstance.title, GAME_TITLE);
 
     SetTraceLogLevel(LOG_INFO);
 
@@ -83,5 +83,5 @@ char *GetAssetsPath(void) {
 
 
 void SetAssetsPath(char *path) {
-    strcpy(assets_path, path);
+    TextCopy(assets_path, path);
 }
